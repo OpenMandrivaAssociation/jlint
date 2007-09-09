@@ -1,17 +1,21 @@
-Summary:        Java program checker
+%bcond_with     doc
+
 Name:           jlint
 Version:        3.0
-Release:        %mkrel 5
+Release:        %mkrel 6
 Epoch:          0
+Summary:        Java program checker
 Group:          Development/Java
 License:        GPL
 URL:            http://jlint.sourceforge.net/
 Source0:        http://osdn.dl.sourceforge.net/jlint/jlint-3.0.tar.bz2
 Patch0:         %{name}-build.patch
+%if %with doc
 BuildRequires:  tetex-latex
 BuildRequires:  texi2html
-BuildRequires:	zlib-devel
 BuildRequires:  texinfo
+%endif
+BuildRequires:	zlib-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
@@ -22,17 +26,21 @@ lock graph.
 %prep
 %setup -q
 %patch0 -p1
+%if %with doc
 %{__rm} -f manual.pdf
+%endif
 
 %build
-%make CFLAGS="-c -DNDEBUG %{optflags}"
+%{make} CFLAGS="-c -DNDEBUG %{optflags}"
+%if %with doc
 %{__make} doc
+%endif
 
 %install
 %{__rm} -rf %{buildroot}
 %{__mkdir_p} %{buildroot}%{_bindir}
-%makeinstall INSTALL_DIR="%{buildroot}%{_bindir}"
-%{__mv} -f %{buildroot}%{_bindir}/%{name}.sh %{buildroot}%{_bindir}/%{name}
+%{makeinstall} INSTALL_DIR="%{buildroot}%{_bindir}"
+%{__mv} %{buildroot}%{_bindir}/%{name}.sh %{buildroot}%{_bindir}/%{name}
 
 %clean
 %{__rm} -rf %{buildroot}
