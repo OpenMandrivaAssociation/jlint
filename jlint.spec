@@ -16,6 +16,7 @@ BuildRequires:  texi2html
 BuildRequires:  texinfo
 %endif
 BuildRequires:	zlib-devel
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 Jlint will check your Java code and find bugs, inconsistencies and
