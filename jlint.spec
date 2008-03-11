@@ -1,15 +1,14 @@
 %bcond_with     doc
 
 Name:           jlint
-Version:        3.0
-Release:        %mkrel 6
+Version:        3.1
+Release:        %mkrel 0.0.1
 Epoch:          0
 Summary:        Java program checker
 Group:          Development/Java
 License:        GPL
 URL:            http://jlint.sourceforge.net/
-Source0:        http://osdn.dl.sourceforge.net/jlint/jlint-3.0.tar.bz2
-Patch0:         %{name}-build.patch
+Source0:        http://osdn.dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 %if %with doc
 BuildRequires:  tetex-latex
 BuildRequires:  texi2html
@@ -25,7 +24,6 @@ lock graph.
 
 %prep
 %setup -q
-%patch0 -p1
 %if %with doc
 %{__rm} -f manual.pdf
 %endif
