@@ -9,6 +9,7 @@ Group:          Development/Java
 License:        GPL
 URL:            http://jlint.sourceforge.net/
 Source0:        http://osdn.dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Patch0:         jlint-3.1-64bit.patch
 %if %with doc
 BuildRequires:  tetex-latex
 BuildRequires:  texi2html
@@ -24,6 +25,7 @@ lock graph.
 
 %prep
 %setup -q
+%patch0 -p1
 %if %with doc
 %{__rm} -f manual.pdf
 %endif
