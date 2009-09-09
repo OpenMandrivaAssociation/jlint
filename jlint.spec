@@ -2,7 +2,7 @@
 
 Name:           jlint
 Version:        3.1
-Release:        %mkrel 0.0.1
+Release:        %mkrel 0.0.2
 Epoch:          0
 Summary:        Java program checker
 Group:          Development/Java
