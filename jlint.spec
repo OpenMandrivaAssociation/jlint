@@ -7,7 +7,7 @@ Epoch:          0
 Summary:        Java program checker
 Group:          Development/Java
 License:        GPL
-URL:            http://jlint.sourceforge.net/
+URL:            https://jlint.sourceforge.net/
 Source0:        http://osdn.dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 Patch0:         jlint-3.1-64bit.patch
 %if %with doc
